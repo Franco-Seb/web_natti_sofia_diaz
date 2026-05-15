@@ -1,0 +1,80 @@
+﻿<header class="sticky top-0 z-50 border-b border-olive/10 bg-beige/95 backdrop-blur">
+  <div class="page-wrap flex h-20 items-center justify-between">
+    <a routerLink="/" class="flex items-center">
+      <img src="/Nuts.webp" alt="Logo Nuts" class="h-12 w-12 object-contain" />
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex">
+      <a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link" class="pb-1 text-sm font-semibold text-olive/80 transition hover:text-olive">Inicio</a>
+      <a routerLink="/nosotros" routerLinkActive="active-link" class="pb-1 text-sm font-semibold text-olive/80 transition hover:text-olive">Nosotros</a>
+      <a routerLink="/productos" routerLinkActive="active-link" class="pb-1 text-sm font-semibold text-olive/80 transition hover:text-olive">Productos</a>
+      <a routerLink="/recetas-blog" routerLinkActive="active-link" class="pb-1 text-sm font-semibold text-olive/80 transition hover:text-olive">Recetas y Blog</a>
+      <a routerLink="/sostenibilidad" routerLinkActive="active-link" class="pb-1 text-sm font-semibold text-olive/80 transition hover:text-olive">Sostenibilidad</a>
+      <a routerLink="/contacto" routerLinkActive="active-link" class="pb-1 text-sm font-semibold text-olive/80 transition hover:text-olive">Contacto</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button
+        type="button"
+        class="inline-flex items-center justify-center rounded-full bg-warmwhite p-2 text-olive shadow-soft md:hidden"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="mobileMenuOpen"
+        aria-label="Abrir menu de navegacion"
+      >
+        <span class="material-symbols-outlined">{{ mobileMenuOpen ? 'close' : 'menu' }}</span>
+      </button>
+      <a routerLink="/productos" class="material-symbols-outlined rounded-full bg-warmwhite p-2 text-olive shadow-soft">shopping_bag</a>
+      <a routerLink="/productos" class="btn-primary hidden sm:inline-flex">Comprar ahora</a>
+    </div>
+  </div>
+
+  @if (mobileMenuOpen) {
+    <nav class="border-t border-olive/10 bg-beige md:hidden">
+      <div class="page-wrap flex flex-col py-3 text-sm font-semibold text-olive/80">
+        <a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link" class="rounded-lg px-2 py-2 transition hover:bg-warmwhite hover:text-olive" (click)="closeMobileMenu()">Inicio</a>
+        <a routerLink="/nosotros" routerLinkActive="active-link" class="rounded-lg px-2 py-2 transition hover:bg-warmwhite hover:text-olive" (click)="closeMobileMenu()">Nosotros</a>
+        <a routerLink="/productos" routerLinkActive="active-link" class="rounded-lg px-2 py-2 transition hover:bg-warmwhite hover:text-olive" (click)="closeMobileMenu()">Productos</a>
+        <a routerLink="/recetas-blog" routerLinkActive="active-link" class="rounded-lg px-2 py-2 transition hover:bg-warmwhite hover:text-olive" (click)="closeMobileMenu()">Recetas y Blog</a>
+        <a routerLink="/sostenibilidad" routerLinkActive="active-link" class="rounded-lg px-2 py-2 transition hover:bg-warmwhite hover:text-olive" (click)="closeMobileMenu()">Sostenibilidad</a>
+        <a routerLink="/contacto" routerLinkActive="active-link" class="rounded-lg px-2 py-2 transition hover:bg-warmwhite hover:text-olive" (click)="closeMobileMenu()">Contacto</a>
+      </div>
+    </nav>
+  }
+</header>
+
+<div class="route-shell" [@routeTransition]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+
+<footer class="border-t border-olive/10 bg-warmwhite py-12">
+  <div class="page-wrap grid gap-8 md:grid-cols-4">
+    <div>
+      <h3 class="font-heading text-xl font-bold text-olive">Nuts</h3>
+      <p class="mt-3 text-sm text-olive/75">Frutos secos premium, snacks saludables y bienestar natural en cada compra.</p>
+    </div>
+    <div>
+      <h4 class="font-heading text-sm font-bold uppercase tracking-wide text-olive">Explorar</h4>
+      <ul class="mt-3 space-y-2 text-sm text-olive/80">
+        <li><a routerLink="/productos">Frutos secos</a></li>
+        <li><a routerLink="/productos">Mix de nueces</a></li>
+        <li><a routerLink="/productos">Snacks naturales</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-heading text-sm font-bold uppercase tracking-wide text-olive">Contacto</h4>
+      <ul class="mt-3 space-y-2 text-sm text-olive/80">
+        <li>WhatsApp: +57 300 123 4567</li>
+        <li>Lunes a sabado: 8:00 a.m. - 6:00 p.m.</li>
+        <li>Envigado, Antioquia, Colombia</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-heading text-sm font-bold uppercase tracking-wide text-olive">Newsletter</h4>
+      <p class="mt-3 text-sm text-olive/75">Recibe recetas y ofertas especiales.</p>
+      <div class="mt-3 flex gap-2">
+        <input type="email" placeholder="Tu correo" class="w-full rounded-lg border border-olive/20 px-3 py-2 text-sm" />
+        <button class="btn-primary px-4">Unirme</button>
+      </div>
+    </div>
+  </div>
+</footer>

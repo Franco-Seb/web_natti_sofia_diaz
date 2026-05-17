@@ -1,0 +1,53 @@
+﻿<main class="page-wrap py-14">
+  <header class="mb-8">
+    <h1 class="section-title">Finalizar pedido</h1>
+    <p class="mt-2 text-olive/80">Completa tus datos para confirmar la compra.</p>
+  </header>
+
+  <div class="mb-6 flex flex-wrap gap-2 text-sm font-semibold">
+    <span class="rounded-full bg-olive px-4 py-2 text-warmwhite">1. Carrito</span>
+    <span class="rounded-full bg-natural px-4 py-2 text-warmwhite">2. Datos del cliente</span>
+    <span class="rounded-full bg-olive/20 px-4 py-2 text-olive">3. Confirmación</span>
+  </div>
+
+  <section class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+    <form class="interactive-card rounded-2xl bg-warmwhite p-6 shadow-soft" (ngSubmit)="continueToConfirm()">
+      <h2 class="font-heading text-xl font-bold">Datos del cliente</h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <div>
+          <label class="text-sm font-semibold">Nombre completo</label>
+          <input type="text" name="fullName" [(ngModel)]="formData.fullName" class="mt-2 w-full rounded-xl border border-olive/20 px-4 py-3" placeholder="Tu nombre" />
+        </div>
+        <div>
+          <label class="text-sm font-semibold">Teléfono</label>
+          <input type="text" name="phone" [(ngModel)]="formData.phone" class="mt-2 w-full rounded-xl border border-olive/20 px-4 py-3" placeholder="321 5855191" />
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <label class="text-sm font-semibold">Dirección de entrega</label>
+        <input type="text" name="deliveryAddress" [(ngModel)]="formData.deliveryAddress" class="mt-2 w-full rounded-xl border border-olive/20 px-4 py-3" placeholder="Cra 42 # 33B Sur - 99, Envigado" />
+      </div>
+
+      <div class="mt-4">
+        <label class="text-sm font-semibold">Notas del pedido</label>
+        <textarea rows="4" name="notes" [(ngModel)]="formData.notes" class="mt-2 w-full rounded-xl border border-olive/20 px-4 py-3" placeholder="Indicaciones adicionales"></textarea>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a routerLink="/carrito" class="btn-secondary">Volver al carrito</a>
+        <button type="submit" class="btn-primary">Continuar</button>
+      </div>
+    </form>
+
+    <aside class="interactive-card h-fit rounded-2xl bg-warmwhite p-5 shadow-soft">
+      <h2 class="font-heading text-xl font-bold">Tu pedido</h2>
+      <div class="mt-4 space-y-3 text-sm text-olive/80">
+        <p class="flex justify-between"><span>Mix de frutos secos</span><span>$79.000</span></p>
+        <p class="flex justify-between"><span>Nueces</span><span>$79.000</span></p>
+        <p class="flex justify-between"><span>Envío</span><span>$8.000</span></p>
+        <p class="flex justify-between border-t border-olive/10 pt-2 font-bold text-olive"><span>Total</span><span>$166.000</span></p>
+      </div>
+    </aside>
+  </section>
+</main>

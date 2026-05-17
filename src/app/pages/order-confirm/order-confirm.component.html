@@ -1,0 +1,40 @@
+﻿<main class="page-wrap py-14">
+  <header class="mb-8">
+    <h1 class="section-title">Confirmar pedido</h1>
+    <p class="mt-2 text-olive/80">Revisa el resumen final antes de confirmar.</p>
+  </header>
+
+  <div class="mb-6 flex flex-wrap gap-2 text-sm font-semibold">
+    <span class="rounded-full bg-olive px-4 py-2 text-warmwhite">1. Carrito</span>
+    <span class="rounded-full bg-olive px-4 py-2 text-warmwhite">2. Datos del cliente</span>
+    <span class="rounded-full bg-natural px-4 py-2 text-warmwhite">3. Confirmar pedido</span>
+  </div>
+
+  <section class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+    <div class="interactive-card rounded-2xl bg-warmwhite p-6 shadow-soft">
+      <h2 class="font-heading text-xl font-bold">Datos de entrega</h2>
+      <div class="mt-4 space-y-2 text-sm text-olive/80">
+        <p><span class="font-semibold text-olive">Cliente:</span> {{ customerName }}</p>
+        <p><span class="font-semibold text-olive">Teléfono:</span> {{ customerPhone }}</p>
+        <p><span class="font-semibold text-olive">Tipo de entrega:</span> A domicilio</p>
+        <p><span class="font-semibold text-olive">Dirección:</span> {{ customerAddress }}</p>
+        <p><span class="font-semibold text-olive">Notas:</span> {{ customerNotes }}</p>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a routerLink="/pedido" class="btn-secondary">Editar datos</a>
+        <a routerLink="/pedido-confirmado" class="btn-primary">Confirmar pedido</a>
+      </div>
+    </div>
+
+    <aside class="interactive-card h-fit rounded-2xl bg-warmwhite p-5 shadow-soft">
+      <h2 class="font-heading text-xl font-bold">Total a pagar</h2>
+      <div class="mt-4 space-y-3 text-sm text-olive/80">
+        <p class="flex justify-between"><span>Mix de frutos secos</span><span>$79.000</span></p>
+        <p class="flex justify-between"><span>Nueces</span><span>$79.000</span></p>
+        <p class="flex justify-between"><span>Envío</span><span>$8.000</span></p>
+        <p class="flex justify-between border-t border-olive/10 pt-2 font-bold text-olive"><span>Total</span><span>$166.000</span></p>
+      </div>
+    </aside>
+  </section>
+</main>

@@ -12,14 +12,21 @@
     </div>
   </section>
 
-  <section class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    <article class="product-card"><img class="h-28 w-full rounded-lg object-contain bg-white" src="/almendras.png" alt="Almendras naturales" /><h3 class="mt-3 font-heading text-base font-bold">Almendras</h3><p class="mt-1 text-xs text-olive/75">Naturales y tostadas.</p><p class="mt-2 text-sm font-bold text-walnut">$24.500</p><button class="btn-primary mt-3 w-full py-2 text-xs">Agregar</button></article>
-    <article class="product-card"><img class="h-28 w-full rounded-lg object-contain bg-white" src="/castanas-avellanas.png" alt="Castañas y avellanas" /><h3 class="mt-3 font-heading text-base font-bold">Castañas y avellanas</h3><p class="mt-1 text-xs text-olive/75">Selección premium.</p><p class="mt-2 text-sm font-bold text-walnut">$27.400</p><button class="btn-primary mt-3 w-full py-2 text-xs">Agregar</button></article>
-    <article class="product-card"><img class="h-28 w-full rounded-lg object-contain bg-white" src="/frutos-secos-tostados.png" alt="Frutos secos tostados" /><h3 class="mt-3 font-heading text-base font-bold">Frutos secos tostados</h3><p class="mt-1 text-xs text-olive/75">Crujientes y listos.</p><p class="mt-2 text-sm font-bold text-walnut">$22.900</p><button class="btn-primary mt-3 w-full py-2 text-xs">Agregar</button></article>
-    <article class="product-card"><img class="h-28 w-full rounded-lg object-contain bg-white" src="/otros-frutos-secos.png" alt="Mix de nueces" /><h3 class="mt-3 font-heading text-base font-bold">Mix de nueces</h3><p class="mt-1 text-xs text-olive/75">Mezcla energética natural.</p><p class="mt-2 text-sm font-bold text-walnut">$28.900</p><button class="btn-primary mt-3 w-full py-2 text-xs">Agregar</button></article>
+  <section class="mt-8">
+    <h2 class="font-heading text-2xl font-bold text-olive">Productos</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <article *ngFor="let product of products" class="product-card">
+        <img class="h-28 w-full rounded-lg object-contain bg-white" [src]="product.image" [alt]="product.name" />
+        <h3 class="mt-3 font-heading text-base font-bold">{{ product.name }}</h3>
+        <p class="mt-1 text-xs text-olive/75">{{ product.presentation }}</p>
+        <p class="mt-2 text-sm font-bold text-walnut">{{ formatPrice(product.price) }}</p>
+        <button type="button" (click)="addToCart(product)" class="btn-primary mt-3 w-full py-2 text-xs">Agregar al carrito</button>
+      </article>
+    </div>
   </section>
 
-  <a href="https://wa.me/573001234567" target="_blank" rel="noreferrer" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-natural px-5 py-3 text-sm font-semibold text-warmwhite"><span class="material-symbols-outlined">chat</span>Comprar por WhatsApp</a>
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a routerLink="/carrito" class="btn-primary">Ir al carrito</a>
+    <a href="https://wa.me/573215855191" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-natural px-5 py-3 text-sm font-semibold text-warmwhite"><span class="material-symbols-outlined">chat</span>Comprar por WhatsApp</a>
+  </div>
 </main>
-
-
